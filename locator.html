@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gaming Laptop Locator</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+       
+        body {
+            background-color: #0a0b3d;
+            font-family: Verdana, sans-serif;
+            color: white;
+        }
+        .store {
+            background-color: white;
+            color: black;
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Product Locator</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <p>Want a brand new gaming laptop? Enter your budget to see what you can afford!: </p>
+                
+                <div class="input-price mb-4">
+                    <input type="number" id="Amount" class="form-control" placeholder="Enter your budget here...">
+                    <button class="btn btn-primary" onclick="checkBudget()">Check Budget</button>
+                </div>
+                
+                <h2 class="mb-5">Status: <span id="ShowStatus" class="text-warning"> Waiting for input... </span></h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h2>Brands & Ranges</h2>
+                <div class="list-price">
+                    <button class="list-price-item-action" onclick="showBrand('Acer')">Acer (Mid-Range)</button><br>
+                    <button class="llist-price-item-action" onclick="showBrand('Asus')">Asus (High-End)</button><br>
+                    <button class="list-price-item-action" onclick="showBrand('Lenovo')">Lenovo (Budget-Friendly)</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h3>Store Locations</h3>
+                
+                <div class="store p-3">
+                    <div class="store-logo text-dark fw-bold text-center bg-warning">CYBERZONE</div>
+                    <p class="small">Manuel A. Roxas Highway Clark Freeport Angeles City, 2009 Pampanga Philippines</p>
+                </div>
+
+                <div class="store p-3">
+                    <div class="store-logo text-dark fw-bold text-center bg-warning">SILICON VALLEY</div>
+                    <p class="small">Manuel A. Roxas Highway 2nd Floor, Cyberzone Clark Field Angeles City, 2009 Pampanga Philippines/p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkBudget() {
+            let Pesos = document.getElementById('Amount').value;
+            let amount = Pesos * 1;
+
+            if (amount <= 0) {
+                document.getElementById('ShowStatus').innerText = "Please enter a valid amount.";
+            } 
+
+
+            else if (amount < 30000) {
+                document.getElementById('ShowStatus').innerText = "₱" + amount + " - Looking for Budget Laptops!";
+            } 
+
+            else if (amount < 60000) {
+                document.getElementById('ShowStatus').innerText = "₱" + amount + " - Eligible for Mid-Range Laptops!";
+            } 
+
+            else {
+                document.getElementById('ShowStatus').innerText = "₱" + amount + " - Eligible for High-End Gaming Laptops!";
+            }
+            }
+
+        function showBrand(brandName) {
+            let message = "You selected: " + brandName;
+            alert(message);
+        }
+</script>
+</body>
+</html>
